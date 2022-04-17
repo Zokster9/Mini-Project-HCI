@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.exe.config
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.exe
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MainWindow.g.cs
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\App.g.cs
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject_MarkupCompile.cache
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject_MarkupCompile.lref
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MainWindow.baml
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.g.resources
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.exe
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\App.baml
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\assets\icons.baml

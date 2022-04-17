@@ -3,10 +3,125 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MiniProject"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:local="clr-namespace:MiniProject" ResizeMode="CanResizeWithGrip"
+        mc:Ignorable="d" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent" MinHeight="500" MinWidth="900">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Form Section -->
+        <Border CornerRadius="0 0 0 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                    <GradientStop Color="#223266" Offset="0"/>
+                    <GradientStop Color="#27396b" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel>
+                <TextBlock Text="HCI - Mini Project" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 25 0 0" FontSize="20" Foreground="#c2cfff"/>
+                <Separator Height="0.8" Margin="25 20 25 20" Background="#c2cfff"/>
+                <TextBlock Text="Choose symbol: " Margin="25 0 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <ComboBox Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                    <ComboBoxItem>EURO</ComboBoxItem>
+                    <ComboBoxItem>RSD</ComboBoxItem>
+                    <ComboBoxItem>DOLAR</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="Choose time period: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <ComboBox Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                    <ComboBoxItem>1 week</ComboBoxItem>
+                    <ComboBoxItem>1 month</ComboBoxItem>
+                    <ComboBoxItem>1 year</ComboBoxItem>
+                </ComboBox>
+                
+                <TextBlock Text="Choose start date: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <DatePicker Padding="0" Foreground="#fff" Margin="25 5 25 5"/>
+                <TextBlock Text="Choose end date: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <DatePicker Padding="0" Foreground="#fff" Margin="25 5 25 5"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
+                    <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="Table view" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
         
+        <!-- Main Section -->
+        <Border Grid.Column="1" CornerRadius="0 0 0 0" MouseDown="Border_MouseDown">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1, 0" EndPoint="0, 1">
+                    <GradientStop Color="#41518f" Offset="0"/>
+                    <GradientStop Color="#2c386c" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Top Menu -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Content="Close" Style="{StaticResource button}"/>
+                    <Button Content="Open" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="High" Style="{StaticResource button}"/>
+                    <Button Content="Low" Style="{StaticResource button}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="1" VerticalAlignment="Top" Margin="8">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Height" Value="25"/>
+                            <Setter Property="Width" Value="25"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate
+                                        TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <Path
+                                                Data="{Binding Content, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                                                Fill="#fff"
+                                                Height="10"
+                                                Width="10"
+                                                Stretch="Uniform"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Name="minimizeButton" Content="{StaticResource minimize_icon}" Click="minimizeButton_Click"/>
+                    <Button Name="maximizeButton" Content="{StaticResource maximize_icon}" Click="maximizeButton_Click"/>
+                    <Button Name="closeButton" Content="{StaticResource close_icon}" Click="closeButton_Click"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!-- Line Chart -->
+                    <Border CornerRadius="20" Padding="35 25" Background="#fff" Margin="30 0 30 30">
+                        <TextBlock Text="This is Line chart"></TextBlock>
+                    </Border>
+
+                    <!-- Other Chart -->
+                    <Border Grid.Row="1" CornerRadius="20" Padding="35 25" Background="#fff" Margin="30 0 30 30">
+                        <TextBlock Text="This is some other chart"></TextBlock>
+                    </Border>
+
+                </Grid>
+                
+            </Grid>
+        </Border>
     </Grid>
+
 </Window>
