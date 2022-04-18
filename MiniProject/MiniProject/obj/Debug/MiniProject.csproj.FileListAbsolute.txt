@@ -15,3 +15,20 @@ C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Deb
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\App.baml
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\assets\icons.baml
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.exe.config
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.exe
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\MiniProject.pdb
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.AssemblyReference.cache
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\assets\icons.baml
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MainWindow.g.cs
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\App.g.cs
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject_MarkupCompile.cache
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject_MarkupCompile.lref
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\App.baml
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MainWindow.baml
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.g.resources
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.Properties.Resources.resources
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.GenerateResource.cache
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CoreCompileInputs.cache
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.exe
+C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
