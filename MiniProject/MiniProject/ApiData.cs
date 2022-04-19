@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MiniProject
 {
+    public enum SeriesType { LOW, HIGH, OPEN, CLOSE }
     public class ApiData
     {
         public string Symbol { get; set; }

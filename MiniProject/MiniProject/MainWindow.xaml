@@ -39,7 +39,7 @@
                 </ComboBox>
                 
                 <TextBlock Text="Choose interval: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Name="Period" Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                <ComboBox Name="Interval" Padding="7" Foreground="#fff" Margin="25 5 25 5">
                     <ComboBoxItem>1 week</ComboBoxItem>
                     <ComboBoxItem>1 month</ComboBoxItem>
                     <ComboBoxItem>1 year</ComboBoxItem>

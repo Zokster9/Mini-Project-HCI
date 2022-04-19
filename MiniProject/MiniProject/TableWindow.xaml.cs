@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -6,9 +7,10 @@ namespace MiniProject
 {
     public partial class TableWindow : Window
     {
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public int Period { get; set; }
+        public string Interval { get; set; }
+        public string Period { get; set; }
+        public string Symbol { get; set; }
+        public string Series_type { get; set; }
 
         public ObservableCollection<TableData> SMA
         {
@@ -20,24 +22,40 @@ namespace MiniProject
         {
             InitializeComponent();
             DataContext = this;
-            SMA = new ObservableCollection<TableData>
-            {
-                new TableData { Time = DateTime.Now, Open = 5.3, Low = 4.5, High = 3.2, Close = 1.2 }
-            };
+            SMA = new ObservableCollection<TableData>();
 
-            StartDate = ((MainWindow)Application.Current.MainWindow).StartDate.SelectedDate.Value.Date;
-            EndDate = ((MainWindow)Application.Current.MainWindow).EndDate.SelectedDate.Value.Date;
-            Period = int.Parse(((MainWindow)Application.Current.MainWindow).Period.SelectedItem.ToString());
+            Interval = ((MainWindow)Application.Current.MainWindow).Interval.SelectedIndex.ToString();
+            Period = ((MainWindow)Application.Current.MainWindow).Period.SelectedItem.ToString();
+            Symbol = ((MainWindow)Application.Current.MainWindow).Period.SelectedItem.ToString();
+
+            List<SmaData> high = ApiCommunication.LoadApiData(Symbol, Interval, Period, "high").SmaData;
+            List<SmaData> low = ApiCommunication.LoadApiData(Symbol, Interval, Period, "low").SmaData;
+            List<SmaData> open = ApiCommunication.LoadApiData(Symbol, Interval, Period, "open").SmaData;
+            List<SmaData> close = ApiCommunication.LoadApiData(Symbol, Interval, Period, "close").SmaData;
+
+            Dictionary<DateTime, SmaValues> x = new Dictionary<DateTime, SmaValues>(); 
+
+            foreach(SmaData x1 in high)
+            {
+                x.Add(x1.Date, new SmaValues());
+
+            }
+
+            //SMA.Add(new TableData(x.Date, open.Value, low.Value, high.Value, close.Value));
         }
     }
 
-    public class TableData
+    public class SmaValues
     {
-        public DateTime Time { get; set; }
         public double Open { get; set; }
         public double Low { get; set; }
         public double High { get; set; }
         public double Close { get; set; }
+    }
+
+    public class TableData : SmaValues
+    {
+        public DateTime Time { get; set; }
 
         public TableData()
         {
@@ -53,4 +71,5 @@ namespace MiniProject
             High = high;
         }
     }
+
 }
