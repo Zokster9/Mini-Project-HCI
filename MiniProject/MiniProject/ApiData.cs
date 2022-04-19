@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniProject
 {
-    class ApiData
+    public class ApiData
     {
         public string Symbol { get; set; }
         public string Function { get; set; }
@@ -36,7 +33,7 @@ namespace MiniProject
         }
     }
 
-    class SmaData
+    public class SmaData
     {
         public DateTime Date { get; set; }
         public double Value { get; set; }

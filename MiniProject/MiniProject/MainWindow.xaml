@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniProject" ResizeMode="CanResizeWithGrip"
         mc:Ignorable="d" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent" MinHeight="500" MinWidth="900">
+        Background="Transparent" MinHeight="500" MinWidth="900"
+        Icon="/assets/money-bag.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
@@ -25,26 +26,28 @@
                 <TextBlock Text="HCI - Mini Project" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 25 0 0" FontSize="20" Foreground="#c2cfff"/>
                 <Separator Height="0.8" Margin="25 20 25 20" Background="#c2cfff"/>
                 <TextBlock Text="Choose symbol: " Margin="25 0 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                <ComboBox Name="Symbol" Padding="7" Foreground="#fff" Margin="25 5 25 5">
                     <ComboBoxItem>EURO</ComboBoxItem>
                     <ComboBoxItem>RSD</ComboBoxItem>
                     <ComboBoxItem>DOLAR</ComboBoxItem>
                 </ComboBox>
                 <TextBlock Text="Choose time period: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                <ComboBox Name="Period" Padding="7" Foreground="#fff" Margin="25 5 25 5">
                     <ComboBoxItem>1 week</ComboBoxItem>
                     <ComboBoxItem>1 month</ComboBoxItem>
                     <ComboBoxItem>1 year</ComboBoxItem>
                 </ComboBox>
                 
-                <TextBlock Text="Choose start date: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <DatePicker Padding="0" Foreground="#fff" Margin="25 5 25 5"/>
-                <TextBlock Text="Choose end date: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <DatePicker Padding="0" Foreground="#fff" Margin="25 5 25 5"/>
-
+                <TextBlock Text="Choose interval: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <ComboBox Name="Period" Padding="7" Foreground="#fff" Margin="25 5 25 5">
+                    <ComboBoxItem>1 week</ComboBoxItem>
+                    <ComboBoxItem>1 month</ComboBoxItem>
+                    <ComboBoxItem>1 year</ComboBoxItem>
+                </ComboBox>
+                
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
                     <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
-                    <Button Content="Table view" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="Table view" Style="{StaticResource button}" Click="TableButton_Click" Background="#5b60c4" Foreground="#ffffff"/>
                 </StackPanel>
             </StackPanel>
 

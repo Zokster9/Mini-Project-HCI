@@ -14,7 +14,7 @@ namespace MiniProject
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                this.DragMove();
+                DragMove();
             }
         }
 
@@ -34,6 +34,12 @@ namespace MiniProject
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void TableButton_Click(object sender, RoutedEventArgs e)
+        {
+            TableWindow win2 = new TableWindow();
+            win2.Show();
         }
     }
 }

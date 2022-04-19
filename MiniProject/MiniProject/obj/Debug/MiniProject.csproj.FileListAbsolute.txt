@@ -32,3 +32,12 @@ C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek 
 C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CoreCompileInputs.cache
 C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.exe
 C:\Users\Zoran Bukorac\Desktop\Fakultet\3. godina\6. semestar\Interakcija covek racunar\miniProjekat\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\TableWindow.g.cs
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.dll
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.xml
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\TableWindow.baml
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CopyComplete
