@@ -41,3 +41,4 @@ C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Deb
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\TableWindow.baml
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\GeneratedInternalTypeHelper.g.cs

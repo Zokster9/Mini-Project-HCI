@@ -23,36 +23,73 @@
             </Border.Background>
 
             <StackPanel>
-                <TextBlock Text="HCI - Mini Project" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 25 0 0" FontSize="20" Foreground="#c2cfff"/>
+                <TextBlock Text="SMA Visualization" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 25 0 0" FontSize="20" Foreground="#c2cfff"/>
                 <Separator Height="0.8" Margin="25 20 25 20" Background="#c2cfff"/>
                 <TextBlock Text="Choose symbol: " Margin="25 0 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Name="Symbol" Padding="7" Foreground="#fff" Margin="25 5 25 5">
-                    <ComboBoxItem>EURO</ComboBoxItem>
-                    <ComboBoxItem>RSD</ComboBoxItem>
-                    <ComboBoxItem>DOLAR</ComboBoxItem>
+                <ComboBox Name="Symbol" Padding="7" Margin="25 5 25 5">
+                    <ComboBoxItem>1min</ComboBoxItem>
+                    <ComboBoxItem>1min</ComboBoxItem>
+                    <ComboBoxItem>1min</ComboBoxItem>
                 </ComboBox>
                 <TextBlock Text="Choose time period: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Name="Period" Padding="7" Foreground="#fff" Margin="25 5 25 5">
-                    <ComboBoxItem>1 week</ComboBoxItem>
-                    <ComboBoxItem>1 month</ComboBoxItem>
-                    <ComboBoxItem>1 year</ComboBoxItem>
-                </ComboBox>
-                
+                <TextBox Name="Period" Padding="7" Margin="25 5 25 5" />
+
                 <TextBlock Text="Choose interval: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Name="Interval" Padding="7" Foreground="#fff" Margin="25 5 25 5">
-                    <ComboBoxItem>1 week</ComboBoxItem>
-                    <ComboBoxItem>1 month</ComboBoxItem>
-                    <ComboBoxItem>1 year</ComboBoxItem>
+                <ComboBox Name="Interval" Padding="7" Margin="25 5 25 5">
+                    <ComboBoxItem>1min</ComboBoxItem>
+                    <ComboBoxItem>5min</ComboBoxItem>
+                    <ComboBoxItem>15min</ComboBoxItem>
+                    <ComboBoxItem>30min</ComboBoxItem>
+                    <ComboBoxItem>60min</ComboBoxItem>
+                    <ComboBoxItem>daily</ComboBoxItem>
+                    <ComboBoxItem>weekly</ComboBoxItem>
+                    <ComboBoxItem>monthly</ComboBoxItem>
                 </ComboBox>
-                
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
                     <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
                     <Button Content="Table view" Style="{StaticResource button}" Click="TableButton_Click" Background="#5b60c4" Foreground="#ffffff"/>
                 </StackPanel>
+
+                <TextBlock Text="META DATA" Margin="25 20 25 5" FontSize="14" Foreground="#c2cfff" HorizontalAlignment="Center"/>
+                <Separator Height="0.8" Margin="25 5 25 5" Background="#c2cfff"/>
+
+                <Grid Height="300" Margin="20,0,25,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Symbol: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Indincator: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Last refreshed: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Interval: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Time period: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Series type: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Time zone: " FontSize="14" Foreground="#c2cfff"/>
+
+                    <Label Content="{Binding Path=Symbol}" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=Indicator}" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=LastRefreshed}" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=Interval}" Grid.Column="1" Grid.Row="3" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=Period}" Grid.Column="1" Grid.Row="4" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=SeriesType}" Grid.Column="1" Grid.Row="5" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=TimeZone}" Grid.Column="1" Grid.Row="6" FontSize="14" Foreground="#c2cfff" />
+
+                </Grid>
             </StackPanel>
 
         </Border>
-        
+
         <!-- Main Section -->
         <Border Grid.Column="1" CornerRadius="0 0 0 0" MouseDown="Border_MouseDown">
             <Border.Background>
@@ -110,7 +147,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <!-- Line Chart -->
                     <Border CornerRadius="20" Padding="35 25" Background="#fff" Margin="30 0 30 30">
                         <TextBlock Text="This is Line chart"></TextBlock>
@@ -122,7 +159,7 @@
                     </Border>
 
                 </Grid>
-                
+
             </Grid>
         </Border>
     </Grid>
