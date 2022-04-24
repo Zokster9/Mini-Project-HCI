@@ -34,6 +34,19 @@ namespace MiniProject
             }
         }
 
+        public static Dictionary<string, string> GetMetaData(string symbol, string interval, string time_period, string series_type)
+        {
+            string QUERY_URL = $"https://www.alphavantage.co/query?function=SMA&symbol={symbol}&interval={interval}&time_period={time_period}&series_type={series_type}&apikey=Q9CTERD3JMG0QU7L";
+            Uri queryUri = new Uri(QUERY_URL);
+            using (WebClient client = new WebClient())
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(object));
+                dynamic meta_data = json_data["Meta Data"];
+                return meta_data;
+            }
+        }
+
         private static DateTime ParseDate(string date)
         {
             string[] split_date = date.Split('-');

@@ -5,9 +5,12 @@ namespace MiniProject
 {
     public partial class MainWindow : Window
     {
+        public LineChart lineChart { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            lineChart = new LineChart();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,10 +39,39 @@ namespace MiniProject
             Close();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ApiData data = ApiCommunication.LoadApiData("USDAUD", "weekly", "60", "open");
+            lineChart.setData(data);
+
+            DataContext = this;
+        }
+
+        private void Clear_Button(object sender, RoutedEventArgs e)
+        {
+            lineChart.clearData();
+        }
+
         private void TableButton_Click(object sender, RoutedEventArgs e)
         {
             TableWindow win2 = new TableWindow();
             win2.Show();
+        }
+
+        private void GetSelectedType()
+        {
+
+        }
+
+
+        private void FillMetaData()
+        {
+            string interval = this.Interval.SelectedIndex.ToString();
+            string period = this.Period.ToString();
+            string symbol = this.Symbol.ToString();
+            //string type = GetSelectedType();
+
+            //Dictionary<string, string> m = ApiCommunication.GetMetaData(symbol, interval, period, type);
         }
     }
 }

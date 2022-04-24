@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:MiniProject" ResizeMode="CanResizeWithGrip"
         mc:Ignorable="d" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent" MinHeight="500" MinWidth="900"
@@ -47,14 +48,15 @@
                 </ComboBox>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
-                    <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Clear_Button"/>
                     <Button Content="Table view" Style="{StaticResource button}" Click="TableButton_Click" Background="#5b60c4" Foreground="#ffffff"/>
+                    <Button Content="Show data" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Button_Click"/>
                 </StackPanel>
 
                 <TextBlock Text="META DATA" Margin="25 20 25 5" FontSize="14" Foreground="#c2cfff" HorizontalAlignment="Center"/>
                 <Separator Height="0.8" Margin="25 5 25 5" Background="#c2cfff"/>
 
-                <Grid Height="300" Margin="20,0,25,0">
+                <Grid Height="300" Margin="25 0 25 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -107,10 +109,10 @@
 
                 <!-- Top Menu -->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Content="Close" Style="{StaticResource button}"/>
-                    <Button Content="Open" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff"/>
-                    <Button Content="High" Style="{StaticResource button}"/>
-                    <Button Content="Low" Style="{StaticResource button}"/>
+                    <RadioButton Content="Close" Style="{StaticResource toggleButton}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <RadioButton Content="Open" Style="{StaticResource toggleButton}" />
+                    <RadioButton Content="High" Style="{StaticResource toggleButton}" />
+                    <RadioButton Content="Low" Style="{StaticResource toggleButton}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="1" VerticalAlignment="Top" Margin="8">
@@ -150,7 +152,14 @@
 
                     <!-- Line Chart -->
                     <Border CornerRadius="20" Padding="35 25" Background="#fff" Margin="30 0 30 30">
-                        <TextBlock Text="This is Line chart"></TextBlock>
+                        <lvc:CartesianChart Series="{Binding Path=lineChart.SeriesCollection}" LegendLocation="Right">
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Value"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Date" Labels="{Binding Path=lineChart.dates}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
                     </Border>
 
                     <!-- Other Chart -->
