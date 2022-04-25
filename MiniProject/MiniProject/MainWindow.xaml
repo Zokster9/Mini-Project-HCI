@@ -43,6 +43,13 @@
                     <ComboBoxItem>monthly</ComboBoxItem>
                 </ComboBox>
 
+                <TextBlock Text="Choose year span: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
+                <ComboBox Name="YearSpan" Padding="7" Margin="25 5 25 5">
+                    <ComboBoxItem>All available</ComboBoxItem>
+                    <ComboBoxItem>1 year</ComboBoxItem>
+                    <ComboBoxItem>2 years</ComboBoxItem>
+                </ComboBox>
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
                     <Button Content="Clear charts" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Clear_Button"/>
                     <Button Content="Table view" Style="{StaticResource button}" Click="TableButton_Click" Background="#5b60c4" Foreground="#ffffff"/>
@@ -52,7 +59,7 @@
                 <TextBlock Text="META DATA" Margin="25 20 25 5" FontSize="14" Foreground="#c2cfff" HorizontalAlignment="Center"/>
                 <Separator Height="0.8" Margin="25 5 25 5" Background="#c2cfff"/>
 
-                <Grid Height="300" Margin="25 0 25 0">
+                <Grid Height="250" Margin="25 0 25 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>

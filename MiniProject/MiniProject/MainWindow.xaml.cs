@@ -1,25 +1,147 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MiniProject
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public LineChart lineChart { get; set; }
 
         public List<string> foreignExchangeList { get; set; }
 
-        public string IntervalMD { get; set; }
-        public string SymbolMD { get; set; }
-        public string PeriodMD { get; set; }
-        public string TimeZoneMD { get; set; }
-        public string LastRefreshedMD { get; set; }
-        public string SeriesTypeMD { get; set; }
-        public string IndicatorMD { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private string _intervalMD = "";
+        public string IntervalMD
+        {
+            set
+            {
+                if (_intervalMD != value)
+                {
+                    _intervalMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _intervalMD;
+            }
+        }
+
+        private string _symbolMD = "";
+        public string SymbolMD
+        {
+            set
+            {
+                if (_symbolMD != value)
+                {
+                    _symbolMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _symbolMD;
+            }
+        }
+
+        private string _periodMD = "";
+        public string PeriodMD
+        {
+            set
+            {
+                if (_periodMD != value)
+                {
+                    _periodMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _periodMD;
+            }
+        }
+        private string _timeZoneMD = "";
+        public string TimeZoneMD
+        {
+            set
+            {
+                if (_timeZoneMD != value)
+                {
+                    _timeZoneMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _timeZoneMD;
+            }
+        }
+        private string _lastRefreshedMD = "";
+        public string LastRefreshedMD
+        {
+            set
+            {
+                if (_lastRefreshedMD != value)
+                {
+                    _lastRefreshedMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _lastRefreshedMD;
+            }
+        }
+        private string _seriesTypeMD = "";
+        public string SeriesTypeMD
+        {
+            set
+            {
+                if (_seriesTypeMD != value)
+                {
+                    _seriesTypeMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _seriesTypeMD;
+            }
+        }
+        private string _indicatorMD = "";
+        public string IndicatorMD
+        {
+            set
+            {
+                if (_indicatorMD != value)
+                {
+                    _indicatorMD = value;
+                    OnPropertyChanged();
+                }
+
+            }
+            get
+            {
+                return _indicatorMD;
+            }
+        }
 
         public MainWindow()
         {
@@ -27,8 +149,6 @@ namespace MiniProject
             lineChart = new LineChart();
             foreignExchangeList = CSV.loadCurrency();
             Symbol.ItemsSource = foreignExchangeList;
-            
-            // add dinamic combobox data
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

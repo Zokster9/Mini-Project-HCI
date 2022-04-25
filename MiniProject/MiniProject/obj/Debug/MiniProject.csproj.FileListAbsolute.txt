@@ -23,3 +23,4 @@ C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Deb
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.exe
 C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.pdb
+C:\Users\Lenovo\Desktop\MiniHCI\Mini-Project-HCI\MiniProject\MiniProject\obj\Debug\MiniProject.csprojAssemblyReference.cache
