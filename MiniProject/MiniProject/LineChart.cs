@@ -60,7 +60,7 @@ namespace MiniProject
             foreach (SmaData sma in smaData)
             {
 
-                dates.Add(sma.Date.ToString().Split(' ')[0]);
+                dates.Add(sma.DateTime);
             }
             return dates;
         }

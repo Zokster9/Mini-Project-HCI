@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MiniProject
 {
@@ -35,29 +36,20 @@ namespace MiniProject
             DataContext = this;
             SMA = new ObservableCollection<TableData>();
 
-            Interval = ((MainWindow)Application.Current.MainWindow).Interval.SelectedIndex.ToString();
-            Period = ((MainWindow)Application.Current.MainWindow).Period.ToString();
-            Symbol = ((MainWindow)Application.Current.MainWindow).Period.ToString();
+            Interval = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Interval.SelectedItem).Content.ToString();
+            Period = ((MainWindow)Application.Current.MainWindow).Period.Text;
+            Symbol = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Symbol.SelectedItem).Content.ToString();
 
             List<SmaData> high = ApiCommunication.LoadApiData(Symbol, Interval, Period, "high").SmaData;
-            Console.WriteLine(high);
             List<SmaData> low = ApiCommunication.LoadApiData(Symbol, Interval, Period, "low").SmaData;
-            Console.WriteLine(low);
             List<SmaData> open = ApiCommunication.LoadApiData(Symbol, Interval, Period, "open").SmaData;
-            Console.WriteLine(open);
             List<SmaData> close = ApiCommunication.LoadApiData(Symbol, Interval, Period, "close").SmaData;
-            Console.WriteLine(close);
 
-
-            Dictionary<DateTime, SmaValues> x = new Dictionary<DateTime, SmaValues>(); 
-
-            foreach(SmaData x1 in high)
+            for (int i = 0; i < high.Count; i++)
             {
-                x.Add(x1.Date, new SmaValues());
-
+                SMA.Add(new TableData(high[i].DateTime, open[i].Value, low[i].Value, high[i].Value, close[i].Value));
             }
 
-            //SMA.Add(new TableData(x.Date, open.Value, low.Value, high.Value, close.Value));
             NotifyPropertyChanged("currencyData");
         }
 
@@ -65,6 +57,7 @@ namespace MiniProject
 
     public class SmaValues
     {
+
         public double Open { get; set; }
         public double Low { get; set; }
         public double High { get; set; }
@@ -73,14 +66,14 @@ namespace MiniProject
 
     public class TableData : SmaValues
     {
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
 
         public TableData()
         {
 
         }
 
-        public TableData(DateTime time, double open, double low, double high, double close)
+        public TableData(string time, double open, double low, double high, double close)
         {
             Time = time;
             Open = open;

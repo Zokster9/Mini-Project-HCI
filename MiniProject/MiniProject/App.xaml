@@ -34,7 +34,7 @@
                     <Setter Property="Foreground" Value="#ffffff"></Setter>
                 </Trigger>
 
-                <Trigger Property="HasContent" Value="true">
+                <Trigger Property="IsChecked" Value="true">
                     <Setter Property="Background" Value="#5b60c4" />
                     <Setter Property="Foreground" Value="#ffffff" /> 
                 </Trigger>

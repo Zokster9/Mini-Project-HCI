@@ -21,11 +21,11 @@ namespace MiniProject
                 foreach (string smaDate in sma_values.Keys)
                 {
                     double value = Convert.ToDouble(sma_values[smaDate]["SMA"]);
-                    SmaData sma = new SmaData(ParseDate(smaDate), value);
+                    SmaData sma = new SmaData(smaDate, value);
                     smaData.Add(sma);
                 }
                 string function = meta_data["2: Indicator"];
-                DateTime last_refreshed = ParseDate(meta_data["3: Last Refreshed"]);
+                string last_refreshed = meta_data["3: Last Refreshed"];
                 int time_per = Convert.ToInt32(time_period);
                 string time_zone = meta_data["7: Time Zone"];
                 ApiData apiData = new ApiData(symbol, function, last_refreshed, interval, time_per, series_type,
@@ -45,16 +45,6 @@ namespace MiniProject
                 dynamic meta_data = json_data["Meta Data"];
                 return meta_data;
             }
-        }
-
-        private static DateTime ParseDate(string date)
-        {
-            string[] split_date = date.Split('-');
-            int year = int.Parse(split_date[0]);
-            int month = int.Parse(split_date[1]);
-            int day = int.Parse(split_date[2]);
-            DateTime dateParsed = new DateTime(year, month, day);
-            return dateParsed;
         }
     }
 }

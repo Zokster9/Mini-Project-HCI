@@ -7,10 +7,20 @@ namespace MiniProject
     {
         public LineChart lineChart { get; set; }
 
+        public string IntervalMD { get; set; }
+        public string SymbolMD { get; set; }
+        public string PeriodMD { get; set; }
+        public string TimeZoneMD { get; set; }
+        public string LastRefreshedMD { get; set; }
+        public string SeriesTypeMD { get; set; }
+        public string IndicatorMD { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             lineChart = new LineChart();
+
+            // add dinamic combobox data
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -43,6 +53,14 @@ namespace MiniProject
         {
             ApiData data = ApiCommunication.LoadApiData("USDAUD", "weekly", "60", "open");
             lineChart.setData(data);
+
+            SymbolMD = data.Symbol;
+            IntervalMD = data.Interval;
+            PeriodMD = data.TimePeriod.ToString();
+            IndicatorMD = data.Function;
+            TimeZoneMD = data.TimeZoneData;
+            LastRefreshedMD = data.LastRefreshedDate;
+            SeriesTypeMD = data.SeriesType;
 
             DataContext = this;
         }

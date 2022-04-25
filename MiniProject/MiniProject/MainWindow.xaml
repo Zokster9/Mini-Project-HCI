@@ -28,7 +28,7 @@
                 <Separator Height="0.8" Margin="25 20 25 20" Background="#c2cfff"/>
                 <TextBlock Text="Choose symbol: " Margin="25 0 25 5" FontSize="14" Foreground="#c2cfff"/>
                 <ComboBox Name="Symbol" Padding="7" Margin="25 5 25 5">
-                    <ComboBoxItem>1min</ComboBoxItem>
+                    <ComboBoxItem>USDAUD</ComboBoxItem>
                     <ComboBoxItem>1min</ComboBoxItem>
                     <ComboBoxItem>1min</ComboBoxItem>
                 </ComboBox>
@@ -48,7 +48,7 @@
                 </ComboBox>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="25 5 25 5">
-                    <Button Content="Clear all" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Clear_Button"/>
+                    <Button Content="Clear charts" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Clear_Button"/>
                     <Button Content="Table view" Style="{StaticResource button}" Click="TableButton_Click" Background="#5b60c4" Foreground="#ffffff"/>
                     <Button Content="Show data" Style="{StaticResource button}" Background="#5b60c4" Foreground="#ffffff" Click="Button_Click"/>
                 </StackPanel>
@@ -71,21 +71,21 @@
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Symbol: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Indincator: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Last refreshed: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Interval: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Time period: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Series type: " FontSize="14" Foreground="#c2cfff"/>
-                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Time zone: " FontSize="14" Foreground="#c2cfff"/>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Symbol: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Indincator: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Last refreshed: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Interval: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Time period: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Series type: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Time zone: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
 
-                    <Label Content="{Binding Path=Symbol}" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=Indicator}" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=LastRefreshed}" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=Interval}" Grid.Column="1" Grid.Row="3" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=Period}" Grid.Column="1" Grid.Row="4" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=SeriesType}" Grid.Column="1" Grid.Row="5" FontSize="14" Foreground="#c2cfff" />
-                    <Label Content="{Binding Path=TimeZone}" Grid.Column="1" Grid.Row="6" FontSize="14" Foreground="#c2cfff" />
+                    <Label Content="{Binding Path=SymbolMD}" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=IndicatorMD}" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=LastRefreshedMD}" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=IntervalMD}" Grid.Column="1" Grid.Row="3" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=PeriodMD}" Grid.Column="1" Grid.Row="4" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center" />
+                    <Label Content="{Binding Path=SeriesTypeMD}" Grid.Column="1" Grid.Row="5" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=TimeZoneMD}" Grid.Column="1" Grid.Row="6" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
 
                 </Grid>
             </StackPanel>
@@ -109,7 +109,7 @@
 
                 <!-- Top Menu -->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <RadioButton Content="Close" Style="{StaticResource toggleButton}" Background="#5b60c4" Foreground="#ffffff"/>
+                    <RadioButton Content="Close" Style="{StaticResource toggleButton}" IsChecked="True" />
                     <RadioButton Content="Open" Style="{StaticResource toggleButton}" />
                     <RadioButton Content="High" Style="{StaticResource toggleButton}" />
                     <RadioButton Content="Low" Style="{StaticResource toggleButton}" />

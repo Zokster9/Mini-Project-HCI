@@ -8,7 +8,7 @@ namespace MiniProject
     {
         public string Symbol { get; set; }
         public string Function { get; set; }
-        public DateTime LastRefreshedDate { get; set; }
+        public string LastRefreshedDate { get; set; }
         public string Interval { get; set; }
         public int TimePeriod { get; set; }
         public string SeriesType { get; set; }
@@ -20,7 +20,7 @@ namespace MiniProject
             SmaData = new List<SmaData>();
         }
 
-        public ApiData(string symbol, string function, DateTime lastRefreshedDate, string interval, int timePeriod, 
+        public ApiData(string symbol, string function, string lastRefreshedDate, string interval, int timePeriod, 
             string seriesType, string timeZoneData, List<SmaData> smaData)
         {
             Symbol = symbol;
@@ -36,7 +36,7 @@ namespace MiniProject
 
     public class SmaData
     {
-        public DateTime Date { get; set; }
+        public string DateTime { get; set; }
         public double Value { get; set; }
 
         public SmaData()
@@ -44,9 +44,9 @@ namespace MiniProject
 
         }
 
-        public SmaData(DateTime date, double value)
+        public SmaData(string dateTime, double value)
         {
-            Date = date;
+            DateTime = dateTime;
             Value = value;
         }
     }
