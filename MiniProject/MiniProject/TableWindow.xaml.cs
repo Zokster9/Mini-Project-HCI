@@ -35,17 +35,36 @@ namespace MiniProject
             InitializeComponent();
             DataContext = this;
             SMA = new ObservableCollection<TableData>();
-
+            if (((MainWindow)Application.Current.MainWindow).Interval.SelectedItem == null)
+            {
+                MessageBox.Show("Enter desired interval.");
+                return;
+            }
+            if (((MainWindow)Application.Current.MainWindow).Period.Text == "")
+            {
+                MessageBox.Show("Enter desired period.");
+                return;
+            }
+            if (((MainWindow)Application.Current.MainWindow).Symbol.Text == "")
+            {
+                MessageBox.Show("Enter desired symbol.");
+                return;
+            }
             Interval = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Interval.SelectedItem).Content.ToString();
             Period = ((MainWindow)Application.Current.MainWindow).Period.Text;
             Symboll = ((MainWindow)Application.Current.MainWindow).Symbol.Text;
-
-
-            List<SmaData> high = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "high").SmaData;
-            List<SmaData> low = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "low").SmaData;
-            List<SmaData> open = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "open").SmaData;
-            List<SmaData> close = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "close").SmaData;
-
+            ApiData highData = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "high");
+            if (highData == null) return;
+            List<SmaData> high = highData.SmaData;
+            ApiData lowData = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "low");
+            if (lowData == null) return;
+            List<SmaData> low = lowData.SmaData;
+            ApiData openData = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "open");
+            if (openData == null) return;
+            List<SmaData> open = lowData.SmaData;
+            ApiData closeData = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "close");
+            if (closeData == null) return;
+            List<SmaData> close = lowData.SmaData;
             for (int i = 0; i < high.Count; i++)
             {
                 SMA.Add(new TableData(high[i].DateTime, open[i].Value, low[i].Value, high[i].Value, close[i].Value));

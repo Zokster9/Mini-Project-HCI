@@ -13,6 +13,8 @@ namespace MiniProject
     {
         public LineChart lineChart { get; set; }
 
+        public OhlcChart OhlcChart { get; set; }
+
         public List<string> foreignExchangeList { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -147,6 +149,7 @@ namespace MiniProject
         {
             InitializeComponent();
             lineChart = new LineChart();
+            OhlcChart = new OhlcChart();
             foreignExchangeList = CSV.loadCurrency();
             Symbol.ItemsSource = foreignExchangeList;
         }
@@ -179,13 +182,41 @@ namespace MiniProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (((MainWindow)Application.Current.MainWindow).Interval.SelectedItem == null)
+            {
+                MessageBox.Show("Enter desired interval.");
+                return;
+            }
+            if (((MainWindow)Application.Current.MainWindow).Period.Text == "")
+            {
+                MessageBox.Show("Enter desired period.");
+                return;
+            }
+            if (((MainWindow)Application.Current.MainWindow).Symbol.Text == "")
+            {
+                MessageBox.Show("Enter desired symbol.");
+                return;
+            }
+            if (((MainWindow)Application.Current.MainWindow).YearSpan.SelectedItem == null)
+            {
+                MessageBox.Show("Enter desired year span.");
+                return;
+            }
             string Intervall = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Interval.SelectedItem).Content.ToString();
             string Periodd = ((MainWindow)Application.Current.MainWindow).Period.Text;
             string Symboll = ((MainWindow)Application.Current.MainWindow).Symbol.Text;
             string Typee = GetSelectedType();
+            string symbol = Symboll.Split('=')[0];
+            string dataPeriod = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).YearSpan.SelectedItem).Content.ToString();
 
-            ApiData data = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Intervall, Periodd, Typee);
+            ApiData data = ApiCommunication.LoadApiData(symbol, Intervall, Periodd, Typee);
+            if (data == null) return;
+            List<OhlcData> ohlcDatas = ApiCommunication.LoadOhclData(symbol);
+            if (ohlcDatas == null) return;
+            data.SmaData = FilterSmaData(data, dataPeriod);
+            ohlcDatas = FilterOhlcData(ohlcDatas, dataPeriod);
             lineChart.setData(data);
+            OhlcChart.SetData(ohlcDatas, symbol);
 
             SymbolMD = data.Symbol;
             IntervalMD = data.Interval;
@@ -198,9 +229,71 @@ namespace MiniProject
             DataContext = this;
         }
 
+        private List<SmaData> FilterSmaData(ApiData data, string dataPeriod)
+        {
+            List<SmaData> smaDatas = new List<SmaData>();
+            if (dataPeriod == "1 year")
+            {
+                DateTime yearBefore = DateTime.Now.AddYears(-1);
+                foreach (SmaData smaData in data.SmaData)
+                {
+                    if (DateTime.Compare(yearBefore, DateTime.Parse(smaData.DateTime)) <= 0)
+                    {
+                        smaDatas.Add(smaData);
+                    }
+                }
+                return smaDatas;
+            }
+            else if (dataPeriod == "2 years")
+            {
+                DateTime twoYearsBefore = DateTime.Now.AddYears(-2);
+                foreach (SmaData smaData in data.SmaData)
+                {
+                    if (DateTime.Compare(twoYearsBefore, DateTime.Parse(smaData.DateTime)) <= 0)
+                    {
+                        smaDatas.Add(smaData);
+                    }
+                }
+                return smaDatas;
+            }
+
+            return data.SmaData;
+        }
+
+        private List<OhlcData> FilterOhlcData(List<OhlcData> ohlcDatas, string dataPeriod)
+        {
+            List<OhlcData> newOhlcDatas = new List<OhlcData>();
+            if (dataPeriod == "1 year")
+            {
+                DateTime yearBefore = DateTime.Now.AddYears(-1);
+                foreach (OhlcData ohlcData in ohlcDatas)
+                {
+                    if (DateTime.Compare(yearBefore, DateTime.Parse(ohlcData.Date)) <= 0)
+                    {
+                        newOhlcDatas.Add(ohlcData);
+                    }
+                }
+                return newOhlcDatas;
+            }
+            else if (dataPeriod == "2 years")
+            {
+                DateTime twoYearsBefore = DateTime.Now.AddYears(-2);
+                foreach (OhlcData ohlcData in ohlcDatas)
+                {
+                    if (DateTime.Compare(twoYearsBefore, DateTime.Parse(ohlcData.Date)) <= 0)
+                    {
+                        newOhlcDatas.Add(ohlcData);
+                    }
+                }
+                return newOhlcDatas;
+            }
+            return ohlcDatas;
+        }
+
         private void Clear_Button(object sender, RoutedEventArgs e)
         {
             lineChart.clearData();
+            OhlcChart.ClearData();
         }
 
         private void TableButton_Click(object sender, RoutedEventArgs e)

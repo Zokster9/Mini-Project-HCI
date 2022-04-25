@@ -6,7 +6,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:MiniProject" ResizeMode="CanResizeWithGrip"
         mc:Ignorable="d" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
-        Background="Transparent" MinHeight="500" MinWidth="900"
+        Background="Transparent" MinHeight="615" MinWidth="900"
         Icon="/assets/money-bag.png">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                 <TextBlock Text="META DATA" Margin="25 20 25 5" FontSize="14" Foreground="#c2cfff" HorizontalAlignment="Center"/>
                 <Separator Height="0.8" Margin="25 5 25 5" Background="#c2cfff"/>
 
-                <Grid Height="250" Margin="25 0 25 0">
+                <Grid Height="150" Margin="25 0 25 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -75,7 +75,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Column="0" Grid.Row="0" Text="Symbol: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Indincator: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Indicator: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text="Last refreshed: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="0" Grid.Row="3" Text="Interval: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="0" Grid.Row="4" Text="Time period: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
@@ -167,7 +167,14 @@
 
                     <!-- Other Chart -->
                     <Border Grid.Row="1" CornerRadius="20" Padding="35 25" Background="#fff" Margin="30 0 30 30">
-                        <TextBlock Text="This is some other chart"></TextBlock>
+                        <lvc:CartesianChart Series="{Binding Path=OhlcChart.SeriesCollection}" LegendLocation="Right">
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Value"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Date" Labels="{Binding Path=OhlcChart.Dates}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
                     </Border>
 
                 </Grid>

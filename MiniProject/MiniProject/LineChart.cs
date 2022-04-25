@@ -26,13 +26,13 @@ namespace MiniProject
                 values = GetValues(data.SmaData);
                 LineSeries lineSeries = new LineSeries
                 {
-                    Title = data.Symbol,
+                    Title = $"{data.Symbol}\n{data.TimePeriod}\n{data.Interval}\n{data.SeriesType}\n",
                     Values = values,
                     PointGeometry = null,
                     //PointGeometrySize = 15
                 };
                 SeriesCollection.Add(lineSeries);
-            } 
+            }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
