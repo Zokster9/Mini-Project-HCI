@@ -12,7 +12,7 @@ namespace MiniProject
     {
         public string Interval { get; set; }
         public string Period { get; set; }
-        public string Symbol { get; set; }
+        public string Symboll { get; set; }
         public string Series_type { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,12 +38,13 @@ namespace MiniProject
 
             Interval = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Interval.SelectedItem).Content.ToString();
             Period = ((MainWindow)Application.Current.MainWindow).Period.Text;
-            Symbol = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Symbol.SelectedItem).Content.ToString();
+            Symboll = ((MainWindow)Application.Current.MainWindow).Symbol.Text;
 
-            List<SmaData> high = ApiCommunication.LoadApiData(Symbol, Interval, Period, "high").SmaData;
-            List<SmaData> low = ApiCommunication.LoadApiData(Symbol, Interval, Period, "low").SmaData;
-            List<SmaData> open = ApiCommunication.LoadApiData(Symbol, Interval, Period, "open").SmaData;
-            List<SmaData> close = ApiCommunication.LoadApiData(Symbol, Interval, Period, "close").SmaData;
+
+            List<SmaData> high = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "high").SmaData;
+            List<SmaData> low = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "low").SmaData;
+            List<SmaData> open = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "open").SmaData;
+            List<SmaData> close = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Interval, Period, "close").SmaData;
 
             for (int i = 0; i < high.Count; i++)
             {

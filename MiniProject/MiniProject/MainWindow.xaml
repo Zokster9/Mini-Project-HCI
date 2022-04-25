@@ -27,11 +27,7 @@
                 <TextBlock Text="SMA Visualization" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 25 0 0" FontSize="20" Foreground="#c2cfff"/>
                 <Separator Height="0.8" Margin="25 20 25 20" Background="#c2cfff"/>
                 <TextBlock Text="Choose symbol: " Margin="25 0 25 5" FontSize="14" Foreground="#c2cfff"/>
-                <ComboBox Name="Symbol" Padding="7" Margin="25 5 25 5">
-                    <ComboBoxItem>USDAUD</ComboBoxItem>
-                    <ComboBoxItem>1min</ComboBoxItem>
-                    <ComboBoxItem>1min</ComboBoxItem>
-                </ComboBox>
+                <ComboBox Name="Symbol" Padding="7" Margin="25 5 25 5"/>
                 <TextBlock Text="Choose time period: " Margin="25 5 25 5" FontSize="14" Foreground="#c2cfff"/>
                 <TextBox Name="Period" Padding="7" Margin="25 5 25 5" />
 
@@ -79,7 +75,7 @@
                     <TextBlock Grid.Column="0" Grid.Row="5" Text="Series type: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <TextBlock Grid.Column="0" Grid.Row="6" Text="Time zone: " FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
 
-                    <Label Content="{Binding Path=SymbolMD}" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
+                    <Label Content="{Binding Path=SymbolMD, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <Label Content="{Binding Path=IndicatorMD}" Grid.Column="1" Grid.Row="1" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <Label Content="{Binding Path=LastRefreshedMD}" Grid.Column="1" Grid.Row="2" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
                     <Label Content="{Binding Path=IntervalMD}" Grid.Column="1" Grid.Row="3" FontSize="14" Foreground="#c2cfff" VerticalAlignment="Center"/>
@@ -108,11 +104,11 @@
                 </Grid.RowDefinitions>
 
                 <!-- Top Menu -->
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <RadioButton Content="Close" Style="{StaticResource toggleButton}" IsChecked="True" />
-                    <RadioButton Content="Open" Style="{StaticResource toggleButton}" />
-                    <RadioButton Content="High" Style="{StaticResource toggleButton}" />
-                    <RadioButton Content="Low" Style="{StaticResource toggleButton}" />
+                <StackPanel Name="PanelRadioButtons" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <RadioButton Name="BtnClose" GroupName="RadioButtons" Content="Close" Style="{StaticResource toggleButton}" IsChecked="True" />
+                    <RadioButton Name="BtnOpen" GroupName="RadioButtons" Content="Open" Style="{StaticResource toggleButton}" />
+                    <RadioButton Name="BtnHigh" GroupName="RadioButtons" Content="High" Style="{StaticResource toggleButton}" />
+                    <RadioButton Name="BtnLow" GroupName="RadioButtons" Content="Low" Style="{StaticResource toggleButton}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="1" VerticalAlignment="Top" Margin="8">

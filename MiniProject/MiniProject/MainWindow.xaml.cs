@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MiniProject
@@ -6,6 +10,8 @@ namespace MiniProject
     public partial class MainWindow : Window
     {
         public LineChart lineChart { get; set; }
+
+        public List<string> foreignExchangeList { get; set; }
 
         public string IntervalMD { get; set; }
         public string SymbolMD { get; set; }
@@ -19,7 +25,9 @@ namespace MiniProject
         {
             InitializeComponent();
             lineChart = new LineChart();
-
+            foreignExchangeList = CSV.loadCurrency();
+            Symbol.ItemsSource = foreignExchangeList;
+            
             // add dinamic combobox data
         }
 
@@ -51,7 +59,12 @@ namespace MiniProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ApiData data = ApiCommunication.LoadApiData("USDAUD", "weekly", "60", "open");
+            string Intervall = ((ComboBoxItem)((MainWindow)Application.Current.MainWindow).Interval.SelectedItem).Content.ToString();
+            string Periodd = ((MainWindow)Application.Current.MainWindow).Period.Text;
+            string Symboll = ((MainWindow)Application.Current.MainWindow).Symbol.Text;
+            string Typee = GetSelectedType();
+
+            ApiData data = ApiCommunication.LoadApiData(Symboll.Split('=')[0], Intervall, Periodd, Typee);
             lineChart.setData(data);
 
             SymbolMD = data.Symbol;
@@ -76,20 +89,18 @@ namespace MiniProject
             win2.Show();
         }
 
-        private void GetSelectedType()
+        private string GetSelectedType()
         {
-
+            List<RadioButton> radioButtons = PanelRadioButtons.Children.OfType<RadioButton>().ToList();
+            foreach (RadioButton rb in radioButtons)
+            {
+                if ((bool)rb.IsChecked)
+                {
+                    return rb.Content.ToString();
+                }
+            }
+            return null;
         }
 
-
-        private void FillMetaData()
-        {
-            string interval = this.Interval.SelectedIndex.ToString();
-            string period = this.Period.ToString();
-            string symbol = this.Symbol.ToString();
-            //string type = GetSelectedType();
-
-            //Dictionary<string, string> m = ApiCommunication.GetMetaData(symbol, interval, period, type);
-        }
     }
 }
